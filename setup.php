@@ -2,6 +2,12 @@
 <html>
 <body>
 <?php
+
+$servername = "127.0.0.1";
+$username = "root";
+$password = "martin11";
+$dbname = "DB_Group11";
+
 function csvToArray($csv)
 {
     $csvInfo = fopen($csv, 'r');
@@ -29,11 +35,9 @@ function preparePublicCompanyInfo() {
 }
 
 function insertSample() {
-    $servername = "127.0.0.1";
-    $username = "root";
-    $password = "martin11";
-    $dbname = "testDB";
     // Create connection
+    
+    global $servername, $username, $password, $dbname;
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {
@@ -70,11 +74,9 @@ function insertSample() {
 }
 
 function createAllTables() {
-    $servername = "127.0.0.1";
-    $username = "root";
-    $password = "martin11";
-    $dbname = "testDB";
     // Create connection
+    
+    global $servername, $username, $password, $dbname;
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {

@@ -33,7 +33,7 @@ After installing MySQL run these two commands in your terminal. Make sure to rep
 
 ```bash
    sudo /usr/local/mysql/support-files/mysql.server start
-   mysql -u root -p < PATH/test.sql
+   php setup.php
 ```
 
 
@@ -55,7 +55,7 @@ To run PHP script execute the following commands. Ensure that PATH is replaced b
 ```bash
     cd PATH
     php -S 127.0.0.1:8000 
-    php test.php
+    php login.php
 ```
 
 
