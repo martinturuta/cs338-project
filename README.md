@@ -23,21 +23,32 @@ As such, this repo uses MySQL for all database logic and PHP for web-based logic
 Clone the repository to a dedicated folder using:
 
 ```bash
-   git clone https://github.com/abains48/cs338project.git
+   git clone https://github.com/martinturuta/cs338-project.git
 ```
 
 
 #### 2. MySQL
 
-After installing MySQL run these two commands in your terminal. Make sure to replace PATH in the second statement with the real path to the test.sql file in the cloned git repo. 
+After installing MySQL, create a schema name that you will populate our tables into. 
+
+In setup.php, change the following placeholders in capitals within the lines to your relevant setup:
+
+```php
+  	$servername = "127.0.0.1";
+	$username = "USERNAME";
+	$password = "PASSWORD";
+	$dbname = "SCHEMA NAME"
+```
+
+
+Run these two commands in your terminal. Make sure you are in a terminal that is already in the git folder. Otherwise, specify the absolute path to the setup.php file.  
 
 ```bash
    sudo /usr/local/mysql/support-files/mysql.server start
    php setup.php
 ```
 
-
-This will create the testDB in your MySQL. 
+This will create the our tables in your MySQL. 
 
 #### 2. PHP
 
