@@ -50,6 +50,12 @@ Run these two commands in your terminal. Ensure you are in a terminal already in
    sudo /usr/local/mysql/support-files/mysql.server start
    php setup.php
 ```
+To start the application, open your terminal in the same directory as the index.php file and type the following command:
+```
+php -S 127.0.0.1:8000
+```
+Once you receive the "(http://127.0.0.1:8000) started" message near the end of the terminal. Head over to http://127.0.0.1:8000/ to navigate over to the application.
+
 
 
 
