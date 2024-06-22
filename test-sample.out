@@ -1,0 +1,23 @@
+INSERT Into Users Query Results:
+1	test@gmail.com	        testing	  L@*!&@H#*HFDH^SDSDSD&SD&#&@	2024-06-21 21:29:01
+2	johndoe@gmail.com	JohnDoe	  testing	                2024-06-21 21:29:39
+
+SELECT Query Results:
+1	NVIDIA Corporation	Technology	3340000000000	49274998784	2.6210
+2	Microsoft Corporation	Technology	3320000000000	126000000000	0.1700
+3	Apple Inc.	        Technology	3290000000000	130000000000	-0.0430
+9	Broadcom Inc.	        Technology	839000000000	21290999808	0.1640
+
+JOIN Query Results:
+1	NVIDIA Corporation	Technology	49274998784	3340000000000	2.6210	Bullish	2024-06-21 21:29:01
+2	Microsoft Corporation	Technology	126000000000	3320000000000	0.1700	Bullish	2024-06-21 21:29:01
+3	Apple Inc.	        Technology	130000000000	3290000000000	-0.0430	Bullish	2024-06-21 21:29:01
+
+DELETE Query Results:
+asdas	2	1	Bullish	2024-06-21 21:29:01
+asdas	3	1	Bullish	2024-06-21 21:29:01
+
+INSERT Into Shortlist_Contains Results:
+asdas	1	1	Bullish	2024-06-21 21:32:52
+asdas	2	1	Bullish	2024-06-21 21:29:01
+asdas	3	1	Bullish	2024-06-21 21:29:01
