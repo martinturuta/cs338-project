@@ -28,10 +28,14 @@ Clone the repository to a dedicated folder using:
 
 
 #### 2. MySQL
+Ensure that MySQL is installed correctly.
+After installing MySQL, create a schema name into which you will populate our tables. 
 
-After installing MySQL, create a schema name that you will populate our tables into. 
+#### 2. PHP
 
-In setup.php, change the following placeholders in capitals within the lines to your relevant setup:
+Ensure that PHP is installed correctly. 
+After installing PHP, open the file titled setup.php and change the following placeholders in capitals within the lines to your relevant setup (Lines 6-9)
+Do the same thing in the file titled getCompanyInfoByParams.php (Lines 41-44):
 
 ```php
   	$servername = "127.0.0.1";
@@ -40,38 +44,12 @@ In setup.php, change the following placeholders in capitals within the lines to 
 	$dbname = "SCHEMA NAME"
 ```
 
-
-Run these two commands in your terminal. Make sure you are in a terminal that is already in the git folder. Otherwise, specify the absolute path to the setup.php file.  
+Run these two commands in your terminal. Ensure you are in a terminal already in the git folder. Otherwise, specify the absolute path to the setup.php file.  
 
 ```bash
    sudo /usr/local/mysql/support-files/mysql.server start
    php setup.php
 ```
-
-This will create the our tables in your MySQL. 
-
-#### 2. PHP
-
-Ensure the PHP is correctly installed. 
-
-Then, change the USERNAME and PASS in the following lines in the test.php file to the username and password of your root user in MySQL:
-
-```php
-    $username = USERNAME; 
-    $password = PASS;
-```
-
-To run PHP script execute the following commands. Ensure that PATH is replaced by the absolute path of the git repo on your local. 
-
-```bash
-    cd PATH
-    php -S 127.0.0.1:8000 
-    php login.php
-```
-
-
-Note: This will show the HTML in terminal as a sanity check that the connection is working. To view this in a web browser, start a PHP instance in terminal and navigate to the local php address. 
-
 
 
 
