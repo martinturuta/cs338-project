@@ -34,8 +34,8 @@ After installing MySQL, create a schema name into which you will populate our ta
 #### 2. PHP
 
 Ensure that PHP is installed correctly. 
-After installing PHP, open the file titled setup.php and change the following placeholders in capitals within the lines to your relevant setup (Lines 6-9)
-Do the same thing in the file titled getCompanyInfoByParams.php (Lines 41-44):
+After installing PHP, open the file titled setup.php and change the following placeholders in capitals within the lines to your relevant setup (Lines 6-9).
+Do the same thing in the file titled getCompanyInfoByParams.php (Lines 41-44) and in the file titled project_db.php (Lines 5-8):
 
 ```php
   	$servername = "127.0.0.1";
