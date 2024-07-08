@@ -21,7 +21,7 @@ function generate_contents($post) {
     //$sname = $post['sname'];
 
     $username = 'testing';
-    $sname = 'Tech companies';
+    $sname = $_GET['sname'];
 
     $sql = "
         select 
