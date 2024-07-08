@@ -35,12 +35,13 @@
                 }
             }
         }
+        $sql = $sql. " LIMIT 20";
 
         return $sql;
     }
     $servername = "127.0.0.1";
-    $username = "root";
-    $password = "password";
+    $username = "Sathus";
+    $password = "Husan2404!";
     $dbname = "testDB";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -56,7 +57,6 @@
         <tr> 
             <td> Company Name </td> 
             <td> Sector </td> 
-            <td> Market Cap </td> 
             <td> Ebitda </td> 
             <td> Revenue Growth </td> 
         </tr>';
@@ -64,14 +64,12 @@
     while ($row = $result->fetch_assoc()) {
         $name = $row["name"];
         $sector = $row["sector"];
-        $market_cap = $row["market_cap"];
         $ebitda = $row["ebitda"];
         $revenue_growth = $row["revenue_growth"]; 
 
         echo '<tr> 
                 <td>'.$name.'</td> 
                 <td>'.$sector.'</td> 
-                <td>'.$market_cap.'</td> 
                 <td>'.$ebitda.'</td> 
                 <td>'.$revenue_growth.'</td> 
             </tr>';

@@ -2,9 +2,9 @@
 
 //db connections
 $servername = "127.0.0.1";
-$username = "root";
-$password = "martin11";
-$dbname = "group11";
+$username = "Sathus";
+$password = "Husan2404!";
+$dbname = "testDB";
 
 
 // Create connection

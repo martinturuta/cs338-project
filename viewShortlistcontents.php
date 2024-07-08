@@ -3,9 +3,9 @@
 <body>
 <?php
 $servername = "127.0.0.1";
-$username = "root";
-$password = "martin11";
-$dbname = "group11";
+$username = "Sathus";
+$password = "Husan2404!";
+$dbname = "testDB";
 
 
 // Create connection
@@ -30,10 +30,11 @@ function generate_contents($post) {
         from SHORTLIST_CONTAINS s
         left join company c
             on c.company_id = s.company_id
-        left join users u
-            on u.id = s.user_id
         left join shortlist sh
-            on sh.sid = s.sid
+            on sh.sid = s.sid   
+        left join users u
+            on u.id = sh.user_id
+
     where u.username = '$username' and sh.sname = '$sname'
     "; 
 
