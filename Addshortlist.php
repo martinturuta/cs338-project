@@ -21,6 +21,8 @@ $sname = $_POST['sname'] ;
 
 function add_shortlist($shortlist_name) {
 
+    if($shortlist_name != '') {
+
     $id =  rand(pow(10, 5-1), pow(10, 5)-1);  
 
     $sql = "
@@ -28,7 +30,9 @@ function add_shortlist($shortlist_name) {
         VALUES ('$id', '$shortlist_name', 1);
     "; 
 
-    return $sql;
+    return $sql; }
+
+    else { header('Location: ViewShortlists.php'); }
 }
 
 $contents = add_shortlist($sname);
