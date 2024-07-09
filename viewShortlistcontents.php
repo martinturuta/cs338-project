@@ -9,8 +9,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $servername = "127.0.0.1";
 $username = "root";
-$password = "password";
-$dbname = "testDB";
+$password = "martin11";
+$dbname = "group11_milestone_2";
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,18 +24,31 @@ function generate_contents($post) {
     $sname = $_GET['sname'];
 
     $sql = "
-        select 
-            s.*, 
-            c.*
-        from SHORTLIST_CONTAINS s
-        left join company c
-            on c.company_id = s.company_id
-        left join shortlist sh
-            on sh.sid = s.sid   
-        left join users u
-            on u.id = sh.user_id
-
-    where u.email = '$email' and sh.sname = '$sname'
+            SELECT 
+                c.company_id,
+                c.name, 
+                c.sector, 
+                if(pc.company_id is not null, 'Private Company', 'Public Company') as company_type, 
+                pc.valuation, 
+                pb.market_cap, 
+                pb.market_price, 
+                c.ebitda, 
+                c.revenue_growth,
+                s.sentiment,
+                s.date_shortlisted
+            FROM SHORTLIST_CONTAINS s
+            LEFT JOIN COMPANY c
+                ON c.company_id = s.company_id
+            LEFT JOIN PRIVATE_COMPANY pc
+                ON pc.company_id = c.company_id 
+            LEFT JOIN PUBLIC_COMPANY pb
+                ON pb.company_id = c.company_id 
+            LEFT JOIN SHORTLIST sh
+                on sh.sid = s.sid 
+            LEFT JOIN USERS u
+                ON u.id = sh.user_id
+        WHERE u.email = '$email' and sh.sname = '$sname' and
+            s.date_shortlisted > DATE_ADD(CURDATE(), INTERVAL -30 DAY);
     "; 
 
     return $sql;
@@ -46,10 +60,11 @@ $result = $conn->query($contents);
 if ($result->num_rows > 0) {
     // Output the data of each row
     echo "<table border='1'>";
-    echo "<tr><th>Company Name</th><th>Sector</th><th>EBITDA</th><th>Sentiment</th><th>Date Shortlisted</th></tr>";
+    echo "<tr><th>Company Name</th><th>Company Type</th><th>Sector</th><th>EBITDA</th><th>Sentiment</th><th>Date Shortlisted</th></tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['name'] . "</td>";
+        echo "<td>" . $row['company_type'] . "</td>";
         echo "<td>" . $row['sector'] . "</td>";
         echo "<td>" . "$" . $row['ebitda'] . "</td>";
         echo "<td>" . $row['sentiment'] . "</td>";
