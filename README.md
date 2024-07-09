@@ -64,7 +64,7 @@ For running with the production database date run this:
 
 ```bash
    sudo /usr/local/mysql/support-files/mysql.server start
-   php setupProdcution.php
+   php setupProduction.php
 ```
 To start the application, open your terminal in the same directory as the index.php file and type the following command:
 ```
