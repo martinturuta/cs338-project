@@ -1,8 +1,10 @@
 # cs338project
 
 ### Overview
-
-This repo contains all the scripts for Group 11's CS338 project. The project focuses on building a stock (equity) exploration application that aids users in stock selection and analysis. Primary features include the ability to query price data for stock tickers, create a shortlist of selected tickers, view a side-by-side comparison of ticker metrics, and display time-series price charts. 
+ 
+This repo contains all the scripts for Group 11's CS338 project. The project focuses on building a stock (equity) exploration application that aids users in stock selection and analysis.
+ 
+Primary functional features include the ability to create a user account with a login page, query public and private companies for given conditions with their respective information, create a shortlist of selected companies, and delete a created shortlist. 
 
 Outlined below is the installation instructions for running the application on your local machine. 
 
