@@ -1,8 +1,10 @@
 # cs338project
 
 ### Overview
-
-This repo contains all the scripts for Group 11's CS338 project. The project focuses on building a stock (equity) exploration application that aids users in stock selection and analysis. Primary features include the ability to query price data for stock tickers, create a shortlist of selected tickers, view a side-by-side comparison of ticker metrics, and display time-series price charts. 
+ 
+This repo contains all the scripts for Group 11's CS338 project. The project focuses on building a stock (equity) exploration application that aids users in stock selection and analysis.
+ 
+Primary functional features include the ability to create a user account with a login page, query public and private companies for given conditions with their respective information, create a shortlist of selected companies, and delete a created shortlist. 
 
 Outlined below is the installation instructions for running the application on your local machine. 
 
@@ -34,8 +36,17 @@ After installing MySQL, create a schema name into which you will populate our ta
 #### 2. PHP
 
 Ensure that PHP is installed correctly. 
-After installing PHP, open the file titled setup.php and change the following placeholders in capitals within the lines to your relevant setup (Lines 6-9).
-Do the same thing in the file titled getCompanyInfoByParams.php (Lines 41-44) and in the file titled project_db.php (Lines 5-8):
+After installing PHP, open the following files and change the following placeholders in capitals within the lines to your relevant setup:
+Do the same thing in the following files:
+ - getCompanyInfoByParams.php (Lines 41-44)
+ - project_db.php (Lines 5-8)
+ - Addshortlist.php (Lines 7-10)
+ - Deleteshortlist.php (Lines 7-10)
+ - setupProduction.php (Lines 6-9)
+ - setupSample.php (Lines 6-9)
+ - viewShortlist.php (Lines 11-14)
+ - viewShortlistcontents.php (10-13)
+
 
 ```php
   	$servername = "127.0.0.1";
@@ -44,17 +55,26 @@ Do the same thing in the file titled getCompanyInfoByParams.php (Lines 41-44) an
 	$dbname = "SCHEMA NAME"
 ```
 
-Run these two commands in your terminal. Ensure you are in a terminal already in the git folder. Otherwise, specify the absolute path to the setup.php file.  
+Run these two commands in your terminal. Ensure you are in a terminal already in the git folder. ForOtherwise, specify the absolute path to the setup file. For running with the sample date run this:
 
 ```bash
    sudo /usr/local/mysql/support-files/mysql.server start
-   php setup.php
+   php setupSample.php
+```
+
+For running with the production database date run this:
+
+```bash
+   sudo /usr/local/mysql/support-files/mysql.server start
+   php setupProduction.php
 ```
 To start the application, open your terminal in the same directory as the index.php file and type the following command:
 ```
 php -S 127.0.0.1:8000
 ```
 Once you receive the "(http://127.0.0.1:8000) started" message near the end of the terminal. Head over to http://127.0.0.1:8000/ to navigate over to the application.
+
+To run the application with a pre-loaded test user dataset, login with username = test@gmail.com and password = test. 
 
 
 
