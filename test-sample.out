@@ -1,23 +1,36 @@
 INSERT Into Users Query Results:
-1	test@gmail.com	        testing	  L@*!&@H#*HFDH^SDSDSD&SD&#&@	2024-06-21 21:29:01
-2	johndoe@gmail.com	JohnDoe	  testing	                2024-06-21 21:29:39
+1	test@gmail.com	test	$2y$10$KtJXVDypAvPr.U8sNBJ6Xu4bbhgmyQx1uNE3R/ZN7xajnum9adVTW	2024-07-08 21:03:31
+2	johndoe@gmail.com	JohnDoe	testing							2024-07-08 22:24:47
+				
 
-SELECT Query Results:
-1	NVIDIA Corporation	Technology	3340000000000	49274998784	2.6210
-2	Microsoft Corporation	Technology	3320000000000	126000000000	0.1700
-3	Apple Inc.	        Technology	3290000000000	130000000000	-0.0430
-9	Broadcom Inc.	        Technology	839000000000	21290999808	0.1640
+SELECT Query Results Where Sector is Technology and Ebitda is greater than 0:
+1	NVIDIA Corporation	Technology	49274998784	2.6210
+2	Microsoft Corporation	Technology	126000000000	0.1700
+3	Apple Inc.		Technology	130000000000	-0.0430
+9	Broadcom Inc.		Technology	21290999808	0.1640
+13	Private1		Technology	19749001	0.0600
+14	Private2		Technology	297490012	0.0600
+15	Private3		Technology	3974900121	0.0600
+				
 
 JOIN Query Results:
-1	NVIDIA Corporation	Technology	49274998784	3340000000000	2.6210	Bullish	2024-06-21 21:29:01
-2	Microsoft Corporation	Technology	126000000000	3320000000000	0.1700	Bullish	2024-06-21 21:29:01
-3	Apple Inc.	        Technology	130000000000	3290000000000	-0.0430	Bullish	2024-06-21 21:29:01
+1	NVIDIA Corporation	Technology		Public Company		3340000000000	136	49274998784	2.6210	Bullish	2024-07-08 20:17:33
+2	Microsoft Corporation	Technology		Public Company		3320000000000	137	126000000000	0.1700	Bullish	2024-06-11 20:17:33
+3	Apple Inc.		Technology		Public Company		3290000000000	138	130000000000	-0.0430	Bullish	2024-07-02 20:17:33
+4	Alphabet Inc.		Communication Services	Public Company		2170000000000	139	110000000000	0.1540	Bearish	2024-05-08 20:17:33
+
+INSERT Query Results:
+1	Sample Companies 1	1
+2	Sample Companies 2	1
+3	TEST SHORTLIST		1
 
 DELETE Query Results:
-asdas	2	1	Bullish	2024-06-21 21:29:01
-asdas	3	1	Bullish	2024-06-21 21:29:01
+1	Sample Companies 1	1
+2	Sample Companies 2	1
 
-INSERT Into Shortlist_Contains Results:
-asdas	1	1	Bullish	2024-06-21 21:32:52
-asdas	2	1	Bullish	2024-06-21 21:29:01
-asdas	3	1	Bullish	2024-06-21 21:29:01
+Aggregate Query Results:
+15	96609001472	107000000000	2.6210	-0.0870
+
+Select Query with Subquery Results:
+1
+		
