@@ -2,11 +2,15 @@
 <html>
 <body>
 <?php
-$servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
-$dbname = "testDB";
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$servername = "127.0.0.1";
+$username = "root";
+$password = "password";
+$dbname = "testDB";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,13 +18,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error); }
 
-
 function generate_contents($post) {
-
-    //$username = $post['username'];
-    //$sname = $post['sname'];
-
-    $username = 'testing';
+    $email = $_SESSION['email'];
     $sname = $_GET['sname'];
 
     $sql = "
@@ -35,14 +34,13 @@ function generate_contents($post) {
         left join users u
             on u.id = sh.user_id
 
-    where u.username = '$username' and sh.sname = '$sname'
+    where u.email = '$email' and sh.sname = '$sname'
     "; 
 
     return $sql;
 }
 
 $contents = generate_contents($_POST);
-
 $result = $conn->query($contents);
 
 if ($result->num_rows > 0) {

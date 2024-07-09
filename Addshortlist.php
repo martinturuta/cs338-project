@@ -1,9 +1,12 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 //db connections
 $servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
+$username = "root";
+$password = "password";
 $dbname = "testDB";
 
 
@@ -15,31 +18,34 @@ die("Connection failed: " . $conn->connect_error); }
 
 
 // retreive info 
-$username = 'testing';
+$email = $_SESSION['email'];
+// $username = 'testing';
 $sname = $_POST['sname'] ;
+echo $sname;
 
 
-function add_shortlist($shortlist_name) {
+function add_shortlist($shortlist_name, $email, $conn) {
 
     if($shortlist_name != '') {
 
-    $id =  rand(pow(10, 5-1), pow(10, 5)-1);  
-
+    $id = "
+        SELECT id from USERS
+        WHERE email = '$email';
+    ";
+    $result = $conn->query($id);
+    $row = $result->fetch_assoc();
     $sql = "
-        INSERT INTO SHORTLIST 
-        VALUES ('$id', '$shortlist_name', 1);
-    "; 
+        INSERT INTO SHORTLIST (sname, user_id)
+        VALUES ('$shortlist_name', " . $row['id'] . ");
+    ";
 
     return $sql; }
 
     else { header('Location: ViewShortlists.php'); }
 }
 
-$contents = add_shortlist($sname);
+$contents = add_shortlist($sname, $email, $conn);
 $result = $conn->query($contents);
 
-header('Location: ViewShortlists.php')
-
-
-
+header('Location: ViewShortlists.php');
 ?> 

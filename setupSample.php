@@ -4,8 +4,8 @@
 <?php
 
 $servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
+$username = "root";
+$password = "password";
 $dbname = "testDB";
 
 function prepareSampleDataset() {
@@ -55,19 +55,22 @@ function prepareSampleDataset() {
     ('15', '333333')";
     $resultFOrInsertPrivate = $conn->query($sqlToInsertIntoPrivate);
 
+    $password = password_hash('test', PASSWORD_DEFAULT);
     $sqlToInsertIntoUsers = "INSERT INTO USERS(email, username, password) VALUES
-    ('test@gmail.com', 'testing', 'L@*!&@H#*HFDH^SDSDSD&SD&#&@')";
+    ('test@gmail.com', 'test', '$password')";
+
     $resultForInsertUsers = $conn->query($sqlToInsertIntoUsers);
 
-    $sqlToInsertIntoShortlist = "INSERT INTO SHORTLIST(sid, sname,user_id)VALUES
-    ('1', 'Tech companies', '1'),
-    ('2', 'No Tech companies', '1');";
+    $sqlToInsertIntoShortlist = "INSERT INTO SHORTLIST(sid, sname, user_id)VALUES
+    ('1', 'Sample Companies 1', '1'),
+    ('2', 'Sample Companies 2', '1');";
     $resultForInsertIntoShortlist = $conn->query($sqlToInsertIntoShortlist);
 
     $sqlToInsertShortlistContains = "INSERT INTO SHORTLIST_CONTAINS(sid,company_id,sentiment) VALUES
     ('1','1','Bullish'),
     ('1','2','Bullish'),
     ('1','3','Bullish'),
+    ('1','4','Bearish', '2024-05-08 20:17:33'),
     ('2','3','Bullish'),
     ('2','4','Bullish');";
     $resultForInsertIntoShortlistContains = $conn->query($sqlToInsertShortlistContains);

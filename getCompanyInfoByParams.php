@@ -40,8 +40,8 @@
         return $sql;
     }
     $servername = "127.0.0.1";
-    $username = "Sathus";
-    $password = "Husan2404!";
+    $username = "root";
+    $password = "password";
     $dbname = "testDB";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

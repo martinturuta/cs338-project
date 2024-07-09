@@ -1,9 +1,12 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 //db connections
 $servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
+$username = "root";
+$password = "password";
 $dbname = "testDB";
 
 
@@ -15,23 +18,29 @@ die("Connection failed: " . $conn->connect_error); }
 
 
 // retreive info 
-$username = 'testing';
+$email = $_SESSION['email'];
+// $username = 'testing';
 $sname = $_GET['sname'];
 
 
-function delete_shortlist($shortlist_name) {
+function delete_shortlist($shortlist_name, $email, $conn) {
 
-    $id =  rand(pow(10, 5-1), pow(10, 5)-1);  
+    $id = "
+        SELECT id from USERS
+        WHERE email = '$email';
+    ";
+    $result = $conn->query($id);
+    $row = $result->fetch_assoc();
 
     $sql = "
-       DELETE FROM SHORTLIST
-        WHERE sname = '$shortlist_name'
-    "; 
+        DELETE FROM SHORTLIST
+        WHERE sname = '$shortlist_name' AND user_id = " . $row['id'] . "
+    ";
 
     return $sql;
 }
 
-$contents = delete_shortlist($sname);
+$contents = delete_shortlist($sname, $email, $conn);
 $result = $conn->query($contents);
 
 header('Location: ViewShortlists.php')

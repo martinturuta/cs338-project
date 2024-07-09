@@ -26,7 +26,8 @@
                     $email = $_SESSION["email"];
                     echo "<div class='nav-link-wrapper'><a>$email</a></div>";
                     echo "<div class='nav-link-wrapper'><a href='includes/logout.inc.php'>Log Out</a></div>";
-                    echo "<div class='centered'><a href='viewcompanyinfo.php' class='view-company-info-btn'>View Company Info</a></div>";
+                    echo "<div class='centered'><a href='viewcompanyinfo.php' class='view-company-info-btn'>View Company Info</a>";
+                    echo "<a href='viewShortlists.php' class='view-shortlist-btn'>View Shortlists</a></div>";
                 } else {
                     echo "<div class='nav-link-wrapper'><a href='login.php'>Log In</a></div>";
                     echo "<div class='nav-link-wrapper'><a href='signup.php'>Sign Up</a></div>";

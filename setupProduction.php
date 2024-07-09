@@ -4,8 +4,8 @@
 <?php
 
 $servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
+$username = "root";
+$password = "password";
 $dbname = "testDB";
 
 function csvToArray($csv)
