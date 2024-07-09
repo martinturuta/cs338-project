@@ -4,8 +4,8 @@
 <?php
 
 $servername = "127.0.0.1";
-$username = "root";
-$password = "password";
+$username = "Sathus";
+$password = "Husan2404!";
 $dbname = "testDB";
 
 function prepareSampleDataset() {
@@ -66,13 +66,13 @@ function prepareSampleDataset() {
     ('2', 'Sample Companies 2', '1');";
     $resultForInsertIntoShortlist = $conn->query($sqlToInsertIntoShortlist);
 
-    $sqlToInsertShortlistContains = "INSERT INTO SHORTLIST_CONTAINS(sid,company_id,sentiment) VALUES
-    ('1','1','Bullish'),
-    ('1','2','Bullish'),
-    ('1','3','Bullish'),
+    $sqlToInsertShortlistContains = "INSERT INTO SHORTLIST_CONTAINS(sid,company_id,sentiment,date_shortlisted) VALUES
+    ('1','1','Bullish', '2024-07-08 20:17:33'),
+    ('1','2','Bullish', '2024-06-11 20:17:33'),
+    ('1','3','Bullish', '2024-07-02 20:17:33'),
+    ('2','3','Bullish', '2024-07-08 20:17:33'),
     ('1','4','Bearish', '2024-05-08 20:17:33'),
-    ('2','3','Bullish'),
-    ('2','4','Bullish');";
+    ('2','4','Bullish', '2024-06-23 20:17:33');";
     $resultForInsertIntoShortlistContains = $conn->query($sqlToInsertShortlistContains);
     $conn->close();
 }
