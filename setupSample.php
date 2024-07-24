@@ -6,7 +6,7 @@
 $servername = "127.0.0.1";
 $username = "Sathus";
 $password = "Husan2404!";
-$dbname = "testDB";
+$dbname = "testdb";
 
 function prepareSampleDataset() {
     // Create connection
@@ -60,6 +60,9 @@ function prepareSampleDataset() {
     ('test@gmail.com', 'test', '$password')";
 
     $resultForInsertUsers = $conn->query($sqlToInsertIntoUsers);
+
+    $sqlToInsertIntoInvestors = "INSERT INTO INVESTORS(id) VALUES ('1')";
+    $resultForInsertIntoInvestors = $conn->query($sqlToInsertIntoInvestors);
 
     $sqlToInsertIntoShortlist = "INSERT INTO SHORTLIST(sid, sname, user_id)VALUES
     ('1', 'Sample Companies 1', '1'),
@@ -116,8 +119,24 @@ function createAllTables() {
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id));";
+    PRIMARY KEY (id),
+    UNIQUE (email));";
     $resultForUsers = $conn->query($sqlToCreateUsers);
+
+    $sqlToCreateInvestors = "CREATE TABLE INVESTORS (
+	id INT NOT NULL, 
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE);";
+    $resultForInvestor = $conn->query($sqlToCreateInvestors);
+
+    $sqlToCreatePrivCompanyCEO = "CREATE TABLE Private_Company_CEO (
+	id INT NOT NULL, 
+    company_id INT NOT NULL,
+    starting_date TIMESTAMP NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (company_id) REFERENCES COMPANY(company_id));";
+    $resultForPrivCompCEO = $conn->query($sqlToCreatePrivCompanyCEO);
 
     $sqlToCreateShortlist = "CREATE TABLE SHORTLIST(
 	sid INT AUTO_INCREMENT NOT NULL, 
