@@ -44,7 +44,7 @@ Do the same thing in the following files:
  - Deleteshortlist.php (Lines 7-10)
  - setupProduction.php (Lines 6-9)
  - setupSample.php (Lines 6-9)
- - viewShortlist.php (Lines 11-14)
+ - viewShortlists.php (Lines 11-14)
  - viewShortlistcontents.php (10-13)
 
 
