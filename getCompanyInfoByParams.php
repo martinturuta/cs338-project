@@ -40,8 +40,8 @@
         return $sql;
     }
     $servername = "127.0.0.1";
-    $username = "Sathus";
-    $password = "Husan2404!";
+    $username = "root";
+    $password = "password";
     $dbname = "testdb";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -75,5 +75,8 @@
             </tr>';
     }
 ?>
+<div style="margin-top: 30px; margin-bottom: 30px;">
+    <a href="viewcompanyinfo.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
+</div>
 </body>
 </html>

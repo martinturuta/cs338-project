@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<div style="margin-top: 30px; margin-bottom: 30px;">
+    <a href="viewshortlistsinfo.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
+</div>
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -70,14 +72,15 @@ if (session_status() == PHP_SESSION_NONE) {
             echo "<tr>";
             echo "<td>" . $row['sname'] . "</td>";
             // ability to view shortlist 
+            $_SESSION["route"] = 1;
             echo "<td>". "<div class='centered'><a href='viewShortlistcontents.php?sname=" . $row['sname'] . "' class='view-shortlis-contents-btn'> View</a></div>". "</td>";
             echo "</tr>";
         }
         echo "</table>";
     }
     $servername = "127.0.0.1";
-    $username = "Sathus";
-    $password = "Husan2404!";
+    $username = "root";
+    $password = "password";
     $dbname = "testdb";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

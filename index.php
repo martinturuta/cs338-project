@@ -47,6 +47,7 @@
                 } else {
                     echo "<div class='nav-link-wrapper'><a href='login.php'>Log In</a></div>";
                     echo "<div class='nav-link-wrapper'><a href='signup.php'>Sign Up</a></div>";
+                    echo "<div class='title-wrapper'><a class='title'>Investment Portfolio Tool</a></div>";
                 }
                 ?>
             </div>

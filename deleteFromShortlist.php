@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<div style="margin-top: 30px; margin-bottom: 30px;">
+    <a href="viewshortlists.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
+</div>
 <form action="doDeleteFromShortlist.php" method="POST">
 <?php
 if (session_status() == PHP_SESSION_NONE) {
@@ -10,8 +12,8 @@ if (session_status() == PHP_SESSION_NONE) {
     $sid =  $_GET['sid'];
     $sql = "SELECT company_id, name  FROM company where company_id in (SELECT company_id FROM shortlist_contains WHERE sid ='".$sid."');";
     $servername = "127.0.0.1";
-    $username = "Sathus";
-    $password = "Husan2404!";
+    $username = "root";
+    $password = "password";
     $dbname = "testdb";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

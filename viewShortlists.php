@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <body>
+<div style="margin-top: 30px; margin-bottom: 30px;">
+    <a href="index.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
+</div>
 
 <?php 
 
@@ -9,8 +12,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
+$username = "root";
+$password = "password";
 $dbname = "testdb";
 
 // Create connection
@@ -42,6 +45,7 @@ function display_contents($connection) {
         echo "<tr>";
         echo "<td>" . $row['sname'] . "</td>";
         // ability to view shortlist 
+        $_SESSION["route"] = 2;
         echo "<td>". "<div class='centered'><a href='viewShortlistcontents.php?sname=" . $row['sname'] . "' class='view-shortlis-contents-btn'> View</a></div>". "</td>";
         // add company to shortlist
         echo "<td>". "<div class='centered'><a href='addToShortlist.php?sname=" . $row['sname'] . "&"."sid=". $row['sid']."' class='view-shortlis-contents-btn'> Add to Shortlist </a></div>". "</td>";
@@ -62,11 +66,7 @@ function display_contents($connection) {
 
 // execute window 
 display_contents($conn)
-?> 
-
-<div style="margin-top: 20px;">
-    <a href="index.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
-</div>
+?>
 
 </body>
 </html>

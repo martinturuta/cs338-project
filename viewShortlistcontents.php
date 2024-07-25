@@ -2,14 +2,13 @@
 <html>
 <body>
 <?php
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 $servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
+$username = "root";
+$password = "password";
 $dbname = "testdb";
 
 
@@ -18,6 +17,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error); }
+
+if ($_SESSION["route"] == 1) {
+    echo '<div style="margin-top: 30px; margin-bottom: 30px;">
+        <a href="viewspecificshortlists.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
+    </div>';
+} else {
+    echo '<div style="margin-top: 30px; margin-bottom: 30px;">
+        <a href="viewshortlists.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
+    </div>';
+}
 
 function generate_contents($post) {
     $email = $_SESSION['email'];

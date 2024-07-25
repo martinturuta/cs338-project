@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <body>
+<div style="margin-top: 30px; margin-bottom: 30px;">
+    <a href="index.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
+</div>
 <?php
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -8,8 +11,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
+$username = "root";
+$password = "password";
 $dbname = "testdb";
 
 
@@ -53,10 +56,6 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 ?>
-
-<div style="margin-top: 20px;">
-    <a href="index.php" style="text-decoration: none; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 5px;">Back</a>
-</div>
 
 </body>
 </html> 
