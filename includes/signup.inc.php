@@ -45,10 +45,44 @@ if (isset($_POST["submit"])) {
     $sql = "INSERT INTO USERS (email, username, password) VALUES (?, ?, ?)";
     $query = $conn->prepare($sql);
     $query->bind_param("sss", $email, $username, $hashedPwd);
+    $userId = $conn->insert_id;
 
     if ($query->execute()) {
-        session_start();
         $_SESSION["email"] = $email;
+
+        $sql = "INSERT INTO COMPANY(name, sector, ebitda, revenue_growth) VALUES (?, ?, ?, ?)";
+        $query = $conn->prepare($sql);
+        $query->bind_param("sssd", $companyName, $companySector, $ebitda, $revenueGrowth);
+
+        if (isset($_POST["userRole"]) && $_POST["userRole"] === "ceo") {
+            $companyName = $_POST["companyName"];
+            $companySector = $_POST["companySector"];
+            $ebitda = $_POST["ebitda"];
+            $revenueGrowth = $_POST["revenueGrowth"];
+            $valuation = $_POST["valuation"];
+            $startingDate = $_POST["startingDate"];
+
+            $sql = "SELECT company_id FROM COMPANY WHERE name = ?";
+            $query = $conn->prepare($sql);
+            $query->bind_param("s", $companyName);
+            if ($query->execute()) {
+                $result = $query->get_result();
+                $row = $result->fetch_assoc();
+                $companyId = $row['company_id'];
+            }
+
+            $sql = "INSERT INTO PRIVATE_COMPANY(company_id, valuation) VALUES (?, ?)";
+            $query = $conn->prepare($sql);
+            $query->bind_param("is", $companyId, $valuation);
+            
+            $sql = "INSERT INTO Private_Company_CEO(company_id, starting_date) VALUES (?, ?)";
+            $query = $conn->prepare($sql);
+            $query->bind_param("is", $companyId, $startingDate);
+        } else if (isset($_POST["userRole"]) && $_POST["userRole"] === "investor") {
+            $sql = "INSERT INTO INVESTORS(id) VALUES (?)";
+            $query = $conn->prepare($sql);
+            $query->bind_param("i", $userId);
+        }
         header("Location: ../index.php");
         exit();
     } else {
