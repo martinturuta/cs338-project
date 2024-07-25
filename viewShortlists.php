@@ -9,9 +9,9 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $servername = "127.0.0.1";
-$username = "root";
-$password = "password";
-$dbname = "testDB";
+$username = "Sathus";
+$password = "Husan2404!";
+$dbname = "testdb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,7 +23,7 @@ function retreive_shortlists($post) {
     $email = $_SESSION['email'];
     $sql = "
         select 
-            sname
+            sid, sname
         from shortlist s
         left join users u
             on u.id = s.user_id
@@ -43,6 +43,10 @@ function display_contents($connection) {
         echo "<td>" . $row['sname'] . "</td>";
         // ability to view shortlist 
         echo "<td>". "<div class='centered'><a href='viewShortlistcontents.php?sname=" . $row['sname'] . "' class='view-shortlis-contents-btn'> View</a></div>". "</td>";
+        // add company to shortlist
+        echo "<td>". "<div class='centered'><a href='addToShortlist.php?sname=" . $row['sname'] . "&"."sid=". $row['sid']."' class='view-shortlis-contents-btn'> Add to Shortlist </a></div>". "</td>";
+        // delete company from shortlist
+        echo "<td>". "<div class='centered'><a href='deleteFromShortlist.php?sname=" . $row['sname'] . "&"."sid=". $row['sid']."' class='view-shortlis-contents-btn'> Delete From Shortlist </a></div>". "</td>";
         // ability to delete shortlist
         echo "<td>". "<div class='centered'><a href='Deleteshortlist.php?sname=" . $row['sname'] . "' class='view-shortlis-contents-btn'> Delete </a></div>". "</td>";
         echo "</tr>";

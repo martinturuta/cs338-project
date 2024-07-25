@@ -4,9 +4,9 @@
 <?php
 
 $servername = "127.0.0.1";
-$username = "root";
-$password = "password";
-$dbname = "testDB";
+$username = "Sathus";
+$password = "Husan2404!";
+$dbname = "testdb";
 
 function csvToArray($csv)
 {
@@ -178,7 +178,6 @@ function createAllTables() {
     $sqlToCreateShortlistContains = "CREATE TABLE SHORTLIST_CONTAINS(
 	sid INT NOT NULL, 
 	company_id INT NOT NULL, 
-	sentiment ENUM('Bullish', 'Bearish'), 
 	date_shortlisted TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (sid, company_id),
 	FOREIGN KEY (sid) REFERENCES shortlist(sid) ON DELETE CASCADE ON UPDATE CASCADE, 

@@ -5,9 +5,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
 //db connections
 $servername = "127.0.0.1";
-$username = "root";
-$password = "password";
-$dbname = "testDB";
+$username = "Sathus";
+$password = "Husan2404!";
+$dbname = "testdb";
 
 
 // Create connection

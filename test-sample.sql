@@ -14,7 +14,6 @@ SELECT
 	   pb.market_price,
 	   c.ebitda,
 	   c.revenue_growth,
-	   s.sentiment,
 	   s.date_shortlisted
 	FROM SHORTLIST_CONTAINS s
 	LEFT JOIN COMPANY c

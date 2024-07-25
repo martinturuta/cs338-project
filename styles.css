@@ -146,7 +146,28 @@ input[type=password] {
     text-decoration: none;
     border-radius: 10px;
 }
+.view-spec-shortlist-btn {
+    display: block;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius: 10px;
+}
 
-.view-company-info-btn:hover, .view-shortlist-btn:hover {
+.view-Company-summary-btn {
+    display: block;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.view-company-info-btn:hover, .view-shortlist-btn:hover, .view-spec-shortlist-btn:hover, .view-Company-summary-btn:hover {
     background-color: #007bff86;
 }

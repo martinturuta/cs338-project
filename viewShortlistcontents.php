@@ -8,9 +8,9 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $servername = "127.0.0.1";
-$username = "root";
-$password = "martin11";
-$dbname = "group11_milestone_2";
+$username = "Sathus";
+$password = "Husan2404!";
+$dbname = "testdb";
 
 
 // Create connection
@@ -34,7 +34,6 @@ function generate_contents($post) {
                 pb.market_price, 
                 c.ebitda, 
                 c.revenue_growth,
-                s.sentiment,
                 s.date_shortlisted
             FROM SHORTLIST_CONTAINS s
             LEFT JOIN COMPANY c
@@ -47,8 +46,7 @@ function generate_contents($post) {
                 on sh.sid = s.sid 
             LEFT JOIN USERS u
                 ON u.id = sh.user_id
-        WHERE u.email = '$email' and sh.sname = '$sname' and
-            s.date_shortlisted > DATE_ADD(CURDATE(), INTERVAL -30 DAY);
+        WHERE u.email = '$email' and sh.sname = '$sname';
     "; 
 
     return $sql;
@@ -56,18 +54,17 @@ function generate_contents($post) {
 
 $contents = generate_contents($_POST);
 $result = $conn->query($contents);
-
+$conn->close();
 if ($result->num_rows > 0) {
     // Output the data of each row
     echo "<table border='1'>";
-    echo "<tr><th>Company Name</th><th>Company Type</th><th>Sector</th><th>EBITDA</th><th>Sentiment</th><th>Date Shortlisted</th></tr>";
+    echo "<tr><th>Company Name</th><th>Company Type</th><th>Sector</th><th>EBITDA</th><th>Date Shortlisted</th></tr>";
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>" . $row['company_type'] . "</td>";
         echo "<td>" . $row['sector'] . "</td>";
         echo "<td>" . "$" . $row['ebitda'] . "</td>";
-        echo "<td>" . $row['sentiment'] . "</td>";
         echo "<td>" . $row['date_shortlisted'] . "</td>";
         echo "</tr>";
     }
@@ -75,9 +72,6 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-;
-$conn->close();
 ?>
 </body>
 </html>
