@@ -11,8 +11,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $servername = "127.0.0.1";
-$username = "root";
-$password = "password";
+$username = "Sathus";
+$password = "Husan2404!";
 $dbname = "testdb";
 
 

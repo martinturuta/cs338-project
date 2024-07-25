@@ -63,8 +63,8 @@ if (isset($_POST["submit"])) {
     }
 
     $_SESSION["email"] = $email;
-
     if (isset($_POST["userRole"]) && $_POST["userRole"] === "ceo") {
+        $_SESSION["userRole"] = $_POST["userRole"];
         $sql = "INSERT INTO COMPANY (name, sector, ebitda, revenue_growth) VALUES (?, ?, ?, ?)";
         $query = $conn->prepare($sql);
         $query->bind_param("ssss", $companyName, $companySector, $ebitda, $revenueGrowth);

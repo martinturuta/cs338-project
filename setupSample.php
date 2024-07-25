@@ -4,8 +4,8 @@
 <?php
 
 $servername = "127.0.0.1";
-$username = "root";
-$password = "password";
+$username = "Sathus";
+$password = "Husan2404!";
 $dbname = "testdb";
 
 function prepareSampleDataset() {

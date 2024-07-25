@@ -79,8 +79,8 @@ if (session_status() == PHP_SESSION_NONE) {
         echo "</table>";
     }
     $servername = "127.0.0.1";
-    $username = "root";
-    $password = "password";
+    $username = "Sathus";
+    $password = "Husan2404!";
     $dbname = "testdb";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

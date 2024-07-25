@@ -12,8 +12,8 @@ if (session_status() == PHP_SESSION_NONE) {
     $sid =  $_GET['sid'];
     $sql = "SELECT company_id, name  FROM company where company_id not in (SELECT company_id FROM shortlist_contains WHERE sid ='".$sid."');";
     $servername = "127.0.0.1";
-    $username = "root";
-    $password = "password";
+    $username = "Sathus";
+    $password = "Husan2404!";
     $dbname = "testdb";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
