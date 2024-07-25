@@ -19,16 +19,18 @@ CREATE TABLE USERS (
 );
 
 CREATE TABLE INVESTORS (
+    investor_id INT NOT NULL AUTO_INCREMENT,
 	id INT NOT NULL, 
-    PRIMARY KEY (id),
+    PRIMARY KEY (investor_id),
     FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Private_Company_CEO (
-	id INT NOT NULL, 
-    company_id INT NOT NULL,
+    ceo_id INT NOT NULL AUTO_INCREMENT,  
+    id INT NOT NULL,       
+    company_id INT NOT NULL,    
     starting_date TIMESTAMP NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (ceo_id),       
     FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (company_id) REFERENCES COMPANY(company_id)
 );

@@ -4,8 +4,8 @@
 <?php
 
 $servername = "127.0.0.1";
-$username = "Sathus";
-$password = "Husan2404!";
+$username = "root";
+$password = "password";
 $dbname = "testdb";
 
 function prepareSampleDataset() {
@@ -124,16 +124,18 @@ function createAllTables() {
     $resultForUsers = $conn->query($sqlToCreateUsers);
 
     $sqlToCreateInvestors = "CREATE TABLE INVESTORS (
+    investor_id INT NOT NULL AUTO_INCREMENT,
 	id INT NOT NULL, 
-    PRIMARY KEY (id),
+    PRIMARY KEY (investor_id),
     FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE);";
     $resultForInvestor = $conn->query($sqlToCreateInvestors);
 
     $sqlToCreatePrivCompanyCEO = "CREATE TABLE Private_Company_CEO (
-	id INT NOT NULL, 
+	ceo_id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL, 
     company_id INT NOT NULL,
     starting_date TIMESTAMP NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (ceo_id),
     FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (company_id) REFERENCES COMPANY(company_id));";
     $resultForPrivCompCEO = $conn->query($sqlToCreatePrivCompanyCEO);
