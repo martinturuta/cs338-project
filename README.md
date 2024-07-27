@@ -46,14 +46,22 @@ After installing MySQL, create a schema name into which you will populate our ta
 Ensure that PHP is installed correctly. 
 After installing PHP, open the following files and change the following placeholders in capitals within the lines to your relevant setup:
 Do the same thing in the following files:
- - getCompanyInfoByParams.php (Lines 41-44)
- - project_db.php (Lines 5-8)
  - Addshortlist.php (Lines 7-10)
+ - addToShortlist.php (Lines 14-17)
+ - Companysummary.php (Lines 13-16)
+ - deleteFromShortlist.php (Lines 14-17)
  - Deleteshortlist.php (Lines 7-10)
+ - doDeleteFromShortlist.php (Lines 8-11)
+ - doInsertToShortlist.php (Lines 8-11)
+ - doModify.php (Lines 10-13)
+ - getCompanyInfoByParams.php (Lines 42-45)
+ - index.php (Lines 26-29)
+ - project_db.php (Lines 5-8)
  - setupProduction.php (Lines 6-9)
  - setupSample.php (Lines 6-9)
- - viewShortlists.php (Lines 11-14)
- - viewShortlistcontents.php (10-13)
+ - viewShortlistcontents.php (Lines 9-12)
+ - viewShortlists.php (Lines 14-17)
+ - viewspecificshortlists.php (Lines 81-84)
 
 
 ```php
