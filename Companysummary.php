@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row['Total_Company'] . "</td>";
         echo "<td>" . $row['Highest_EBITDA'] . "</td>";
         echo "<td>" . $row['Lowest_EBITDA'] . "</td>";
-        echo "<td>" . "$" . $row['Highest_RevGrowth'] . "</td>";
+        echo "<td>" . $row['Highest_RevGrowth'] . "</td>";
         echo "<td>" . $row['Lowest_RevGrowth'] . "</td>";
         echo "</tr>";
     }

@@ -86,7 +86,7 @@ function createAllTables() {
     $sqlToCreatePublicCompany = "CREATE TABLE PUBLIC_COMPANY(
     company_id INT NOT NULL,  
     market_cap BIGINT NOT NULL,
-    market_price decimal(8,2) NOT NULL,
+    market_price BIGINT NOT NULL,
     PRIMARY KEY (company_id),
     FOREIGN KEY (company_id) REFERENCES COMPANY(company_id));";
     $resultForPublicCompany = $conn->query($sqlToCreatePublicCompany);
@@ -97,19 +97,19 @@ function createAllTables() {
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (email),
-    PRIMARY KEY (id));";
+    PRIMARY KEY (id),
+    UNIQUE (email));";
     $resultForUsers = $conn->query($sqlToCreateUsers);
 
     $sqlToCreateInvestors = "CREATE TABLE INVESTORS (
     investor_id INT NOT NULL AUTO_INCREMENT,
-    id INT NOT NULL, 
+	id INT NOT NULL, 
     PRIMARY KEY (investor_id),
     FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE);";
     $resultForInvestor = $conn->query($sqlToCreateInvestors);
-    
+
     $sqlToCreatePrivCompanyCEO = "CREATE TABLE Private_Company_CEO (
-    ceo_id INT NOT NULL AUTO_INCREMENT,
+	ceo_id INT NOT NULL AUTO_INCREMENT,
     id INT NOT NULL, 
     company_id INT NOT NULL,
     starting_date TIMESTAMP NOT NULL,
