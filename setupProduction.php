@@ -55,72 +55,6 @@ function prepareProductionDataset() {
     }
     $conn->query($insertCompanyStatement);
     $conn->query($insertPublicStatement);
-
-    // Private Companies
-    $newInsertCompanyStatement = "INSERT INTO COMPANY(name, sector, ebitda,revenue_growth) VALUES
-    ('AlphaTech Innovations', 'Technology', '15000000', '0.10'),
-    ('GreenEnergy Solutions', 'Renewable Energy', '20000000', '0.15'),
-    ('MedHealth Corp', 'Healthcare', '18000000', '0.12'),
-    ('FinTech Dynamics', 'Financial Technology', '22000000', '0.20'),
-    ('EcoGoods Retail', 'Retail', '14000000', '0.08'),
-    ('CloudWare Systems', 'Software', '25000000', '0.18'),
-    ('AgriGrowth Ventures', 'Agriculture', '12000000', '0.09'),
-    ('UrbanBuild Constructors', 'Construction', '19000000', '0.11'),
-    ('SafeGuard Security', 'Security Services', '16000000', '0.07'),
-    ('EduTech Innovations', 'Education Technology', '21000000', '0.14'),
-    ('BioLife Sciences', 'Biotechnology', '17000000', '0.13'),
-    ('TravelEase Inc.', 'Travel & Leisure', '13000000', '0.10'),
-    ('AutoDrive Manufacturing', 'Automotive', '24000000', '0.16'),
-    ('FoodDelight Industries', 'Food & Beverage', '15000000', '0.09'),
-    ('SmartHome Technologies', 'Smart Home', '18000000', '0.12'),
-    ('AquaPure Water', 'Water Treatment', '20000000', '0.08'),
-    ('CleanAir Solutions', 'Environmental Services', '19000000', '0.11'),
-    ('RoboTech Robotics', 'Robotics', '23000000', '0.17'),
-    ('WellnessPro Healthcare', 'Wellness & Fitness', '16000000', '0.10'),
-    ('FashionForward Inc.', 'Fashion', '14000000', '0.06'),
-    ('CyberShield Systems', 'Cybersecurity', '25000000', '0.19'),
-    ('NextGen Logistics', 'Logistics', '21000000', '0.13'),
-    ('GreenField Farms', 'Farming', '12000000', '0.08'),
-    ('BuildSmart Construction', 'Construction', '19000000', '0.10'),
-    ('BrightFuture Education', 'Education', '17000000', '0.12'),
-    ('BioPharma Innovations', 'Pharmaceuticals', '22000000', '0.14'),
-    ('HomeSafe Security', 'Home Security', '15000000', '0.07'),
-    ('HealthyLiving Foods', 'Organic Food', '13000000', '0.09'),
-    ('TechSavvy Solutions', 'IT Services', '24000000', '0.18'),
-    ('FreshHarvest Produce', 'Agriculture', '11000000', '0.07')";
-    $conn->query($newInsertCompanyStatement);
-    $insertPrivateStatement = "INSERT INTO PRIVATE_COMPANY (company_id, valuation) VALUES
-    ('503', '50000000'),
-    ('504', '60000000'),
-    ('505', '55000000'),
-    ('506', '70000000'),
-    ('507', '40000000'),
-    ('508', '75000000'),
-    ('509', '35000000'),
-    ('510', '50000000'),
-    ('511', '45000000'),
-    ('512', '65000000'),
-    ('513', '55000000'),
-    ('514', '42000000'),
-    ('515', '68000000'),
-    ('516', '48000000'),
-    ('517', '55000000'),
-    ('518', '60000000'),
-    ('519', '50000000'),
-    ('520', '72000000'),
-    ('521', '45000000'),
-    ('522', '40000000'),
-    ('523', '80000000'),
-    ('524', '65000000'),
-    ('525', '35000000'),
-    ('526', '50000000'),
-    ('527', '55000000'),
-    ('528', '70000000'),
-    ('529', '45000000'),
-    ('530', '42000000'),
-    ('531', '68000000'),
-    ('532', '33000000')";
-    $conn->query($insertPrivateStatement);
     $conn->close();
 }
 
@@ -166,6 +100,23 @@ function createAllTables() {
     UNIQUE (email),
     PRIMARY KEY (id));";
     $resultForUsers = $conn->query($sqlToCreateUsers);
+
+    $sqlToCreateInvestors = "CREATE TABLE INVESTORS (
+    investor_id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL, 
+    PRIMARY KEY (investor_id),
+    FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE);";
+    $resultForInvestor = $conn->query($sqlToCreateInvestors);
+    
+    $sqlToCreatePrivCompanyCEO = "CREATE TABLE Private_Company_CEO (
+    ceo_id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL, 
+    company_id INT NOT NULL,
+    starting_date TIMESTAMP NOT NULL,
+    PRIMARY KEY (ceo_id),
+    FOREIGN KEY (id) REFERENCES USERS(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (company_id) REFERENCES COMPANY(company_id));";
+    $resultForPrivCompCEO = $conn->query($sqlToCreatePrivCompanyCEO);
 
     $sqlToCreateShortlist = "CREATE TABLE SHORTLIST(
 	sid INT AUTO_INCREMENT NOT NULL, 

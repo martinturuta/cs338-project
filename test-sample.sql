@@ -50,3 +50,6 @@ FROM SHORTLIST_CONTAINS sc
 WHERE sc.company_id IN
     (SELECT c.company_id from COMPANY c
      WHERE c.sector = 'Technology' AND c.revenue_growth > 2);
+
+UPDATE private_company SET valuation='500' WHERE company_id='16';
+SELECT * FROM private_company;

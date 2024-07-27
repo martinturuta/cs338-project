@@ -81,3 +81,6 @@ WHERE c.sector = 'Technology' AND c.revenue_growth > 2;
 DELETE FROM SHORTLIST WHERE sname in ('Sample Companies 1', 'Sample Companies 2') and user_id = 1;
 select * from shortlist;
 
+UPDATE private_company SET valuation='500' WHERE company_id='16' AND valuation != '500';
+select * from private_company
+

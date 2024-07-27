@@ -134,3 +134,10 @@ Optimized Select Without Subquery Results:
 
 Bulk Delete Results (There will be no results as we remove the only 2 sample shortlists):
 
+Optimized Update Query Results:
+13	123456
+14	222222
+15	333333
+16	500
+	
+

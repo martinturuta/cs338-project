@@ -33,4 +33,11 @@ Aggregate Query Results:
 
 Select Query with Subquery Results:
 1
+
+UPDATE Query Results:
+13	123456
+14	222222
+15	333333
+16	500
+	
 		
